@@ -34,8 +34,8 @@ export default function Component() {
                 subsidiaries and affiliates in verticals including finance, entertainment, gaming, and chat software. As a
                 social application of national importance in South Korea, Kakao holds a position similar to WeChat in
                 China. Its success has attracted investments from organizations such as the SoftBank Vision Fund, Tencent
-                (China's premier internet insurance company), Tencent Games, China, the Central Bank of Norway, and, in
-                the present stage, the newly established KaKacoin Foundation in the United States. Kakao's future is
+                (China&apos;s premier internet insurance company), Tencent Games, China, the Central Bank of Norway, and, in
+                the present stage, the newly established KaKacoin Foundation in the United States. Kakao&apos;s future is
                 brimming with opportunities for development and adjustments, making it a testament to its strength as a
                 renowned company.
               </p>
@@ -55,24 +55,24 @@ export default function Component() {
             <section className="py-8">
               <div className="flex justify-start">
                 <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                <h2 className="text-3xl font-bold mb-4">KAKACOIN'S SOCIAL SPACE</h2>
+                <h2 className="text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL SPACE</h2>
               </div>
               <p className="mb-4">
                 KaKacoin is a next-generation social aggregation platform created by merging the popular Web3.0 concepts
-                and decentralized ideologies, built on the foundation of the Republic of Korea's national social
-                application, Kakao Talk. In its first phase, KaKacoin's mission is to pioneer the creation of a
+                and decentralized ideologies, built on the foundation of the Republic of Korea&apos;s national social
+                application, Kakao Talk. In its first phase, KaKacoin&apos;s mission is to pioneer the creation of a
                 decentralized social space where gaming communities and groundbreaking social ecosystems intertwine.
                 KaKacoin envisions a virtual human-centric digital social investment, aiming to establish a governance
                 system, intended to innovate the interaction model of individuals in the digital realm by co-participating
-                and equally decentralized social investing. The integration of each individual's unique social spaces will
+                and equally decentralized social investing. The integration of each individual&apos;s unique social spaces will
                 converge, enabling communication from anywhere and allowing every participating user to create their
-                "social domain", fostering and enjoying immersive experiences.
+                &quot;social domain&quot;, fostering and enjoying immersive experiences.
               </p>
             </section>
             <section className="py-8">
               <div className="flex justify-start">
                 <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                <h2 className="text-3xl font-bold mb-4">KAKACOIN'S SOCIAL METAVERSE</h2>
+                <h2 className="text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL METAVERSE</h2>
               </div>
               <p className="mb-4">
               The Social Metaverse, also known as the Decentralized Social Metaverse, is a framework designed by KaKaocoin 
@@ -119,7 +119,7 @@ export default function Component() {
               <div className="grid grid-cols-1 gap-4">
                 <div className="bg-gray-100 p-4">
                   <p className="text-sm my-2">
-                    KaKaocoin's Integration of Social Interaction, NFT, Games, and Metaverse
+                    KaKaocoin&apos;s Integration of Social Interaction, NFT, Games, and Metaverse
                   </p>
                 </div>
                 <div className="bg-gray-100 p-4">
@@ -144,8 +144,8 @@ export default function Component() {
               </div>
               
               <p className="mb-4">
-                KaKacoin's platform will introduce a comprehensive and recyclable economic model in the first phase, which
-                will include the introduction of a social token called KaKacoin, abbreviated as "KKC". KKC is the
+                KaKacoin&apos;s platform will introduce a comprehensive and recyclable economic model in the first phase, which
+                will include the introduction of a social token called KaKacoin, abbreviated as &quot;KKC&quot;. KKC is the
                 circulating token for the decentralized social platform in the first phase and is issued as a standard
                 token based on the Ethereum ERC-20 protocol. KKC serves as both an incentive token and a social token
                 within the KaKacoin platform.
@@ -188,7 +188,7 @@ export default function Component() {
               4.0 Development Stages of KaKaocoin DAO
               </p>
               <p>
-              KaKaocoin's DAO will gradually evolve into a practical and exemplary DAO, including: Primarily focused on social 
+              KaKaocoin&apos;s DAO will gradually evolve into a practical and exemplary DAO, including: Primarily focused on social 
               communication with wallet as the supplement, integrating a wallet within social communication and incorporating the 
               community, DAO, and Gamefi
               </p>
@@ -196,7 +196,7 @@ export default function Component() {
             <section className="py-8">
               <div className="flex justify-start">
                 <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                <h2 className="text-3xl font-bold mb-4">KKC'S FUTURE PLANS</h2>
+                <h2 className="text-3xl font-bold mb-4">KKC&apos;S FUTURE PLANS</h2>
               </div>
               <p className="mb-4">
                 In the future, KaKacoin will continue to enhance and add various features to its platform, with a primary
@@ -221,7 +221,7 @@ export default function Component() {
                 own topics to become moderators and earn income by managing topics content.
               </p>
               <p className="mb-4">Free cryptocurrency currencies and newly listed coins. View real-time price quotes.</p>
-              <p className="mb-4">User tagging, such as "Whale user", "crypto expert", "day trader" and more.</p>
+              <p className="mb-4">User tagging, such as &quot;Whale user&quot;, &quot;crypto expert&quot;, &quot;day trader&quot; and more.</p>
             </section>
           </main>
         </div>

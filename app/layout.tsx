@@ -106,9 +106,9 @@ export default function RootLayout({
             <div>
               <h3 className="font-bold">Touch</h3>
               <div className="flex space-x-2">
-                <DiscordIcon className="text-white" />
-                <TwitterIcon className="text-white" />
-                <TelegramIcon className="text-white" />
+                <DiscordIcon />
+                <TwitterIcon  />
+                <TelegramIcon  />
               </div>
             </div>
           </div>
@@ -119,10 +119,9 @@ export default function RootLayout({
   )
 }
 
-function DiscordIcon(props) {
+function DiscordIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -138,10 +137,9 @@ function DiscordIcon(props) {
   )
 }
 
-function TelegramIcon(props) {
+function TelegramIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -158,17 +156,16 @@ function TelegramIcon(props) {
 }
 
 
-function TwitterIcon(props) {
+function TwitterIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="white"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="0"
       strokeLinecap="round"
       strokeLinejoin="round"
     >

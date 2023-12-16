@@ -70,7 +70,7 @@ export default function Component() {
         </Card>
       </main>
       <section className="bg-white p-8">
-        <h2 className="text-3xl font-bold">KKC'S FUTURE PLANS</h2>
+        <h2 className="text-3xl font-bold">KKC&apos;S FUTURE PLANS</h2>
         <p className="mt-4">
           In the future, KakaoCoin will continue to enhance and add various features to its platform, with a primary
           focus on social communication and a supplementary role for the wallet. These additions will further integrate
