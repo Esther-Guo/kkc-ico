@@ -249,7 +249,7 @@ export default function Whitepaper() {
                 <p className="mb-2">· Trending cryptocurrencies and newly listed coins. View real-time prices.</p>
                 <p className="mb-2">· User tagging, such as &quot;Whale user&quot;, &quot;crypto expert&quot;, &quot;day trader&quot; and more.</p>
 
-                <p className="mt-4 text-sm">More new social features. The KaKaocoin community can vote to introduce additional features. In summary, KaKaocoin's decentralized social platform is expected to be revolutionary in the future, meeting the current needs of cryptocurrency investors in terms of practicality, entertainment, playability, and financial aspects.</p>
+                <p className="mt-4 text-sm">More new social features. The KaKaocoin community can vote to introduce additional features. In summary, KaKaocoin&apos;s decentralized social platform is expected to be revolutionary in the future, meeting the current needs of cryptocurrency investors in terms of practicality, entertainment, playability, and financial aspects.</p>
               </section>
             </div>
           </main>
