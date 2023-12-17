@@ -8,12 +8,12 @@ export default function ICO() {
     <div className="min-h-screen bg-white w-full">
         <main>
             <section className="px-20 py-10 bg-[#FFC102] relative w-full flex justify-end">
-                <div className="absolute left-10 bottom-10">
+                <div className="absolute left-20 bottom-10">
                 <Image
                 src="/ico.png"
                 alt="ICO background"
-                width={400}
-                height={400}
+                width={500}
+                height={500}
                 />
                 </div>
         
