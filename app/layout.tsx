@@ -23,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <nav className="flex justify-between items-center px-4 md:px-20 py-4 bg-black text-white relative z-10">
         <div className="flex items-center">
+          {/* TODO nav page */}
           <Button variant="nav" size="icon" className="md:hidden text-white">
             <Menu className="h-6 w-6"/>
           </Button>
