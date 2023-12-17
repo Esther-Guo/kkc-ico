@@ -20,42 +20,55 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <nav className="flex justify-between items-center p-4 bg-black text-white">
-        <div className="flex space-x-4">
+      <nav className="flex justify-between items-center px-20 py-4 bg-black text-white relative z-10">
+        <div className="flex space-x-8 items-center">
           <Image
             src="/logo.png"
             alt="KakaoCoin logo"
             width={120}
             height={24}
+            priority
           />
-          <Link href="/">
-            HOME
-          </Link>
-          <Link href="/ico">
-            ICO
-          </Link>
+          <div className="space-x-4">
+            <Link href="/" className="text-sm">
+              HOME
+            </Link>
+            <Link href="/ico" className="text-sm">
+              ICO
+            </Link>
+          </div>
         </div>
         <Button className="bg-[#FFC102] text-white">Connect Wallet</Button>
       </nav>
+      <div className="flex flex-col items-center">
         {children}
-        <footer className="bg-[#FFC102] p-8">
+      </div>
+      <footer className="relative mt-20 bg-[#FFC102] px-32 py-16">
+        <div className="absolute left-[5%] transform -translate-y-2/3 top-0">
+        <Image 
+          src="/footer.png"
+          alt="footer bear"
+          width={128}
+          height={180}
+        />
+        </div>
         <div className="flex justify-between">
           <div className="w-1/4">
           <Image
             src="/footerLogo.png"
             alt="KakaoCoin logo"
-            width={120}
-            height={24}
+            width={240}
+            height={40}
           />
-            <p className="mt-2">
+            <p className="mt-6">
               By establishing a truly decentralized social aggregation platform, we aim to pioneer innovative social
               models and enhance the social experience in the Web3 digital era!
             </p>
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <h3 className="font-bold">About</h3>
-              <ul>
+              <h3 className="font-bold mb-4">About</h3>
+              <ul className="space-y-2">
                 <li>
                   <Link className="text-white" href="#">
                     Help
@@ -79,8 +92,8 @@ export default function RootLayout({
               </ul>
             </div>
             <div>
-              <h3 className="font-bold">Info</h3>
-              <ul>
+              <h3 className="font-bold mb-4">Info</h3>
+              <ul className="space-y-2">
                 <li>
                   <Link className="text-white" href="#">
                     About us
@@ -104,7 +117,7 @@ export default function RootLayout({
               </ul>
             </div>
             <div>
-              <h3 className="font-bold">Touch</h3>
+              <h3 className="font-bold mb-4">Touch</h3>
               <div className="flex space-x-2">
                 <DiscordIcon />
                 <TwitterIcon  />

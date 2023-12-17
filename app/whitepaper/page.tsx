@@ -1,4 +1,4 @@
-export default function Component() {
+export default function Whitepaper() {
     return (
       <div className="bg-white text-gray-900">
         <div className="container mx-auto px-4 py-8">
@@ -162,6 +162,14 @@ export default function Component() {
                 <li>Ecosystem Incentives: 5.0%</li>
                 <li>Developers: 5.0%</li>
               </ul>
+              <p className="text-[#FFC102] text-xl font-semibold my-4">
+              KaKaocoin Node Tokens 
+              </p>
+              <p>
+                Within the KaKaocoin social network, each domain functions as a node, and each node has an exclusive NFT. By 
+                becoming a part of the DAOs community nodes, users will participate in KaKaocoin&apos;s governance and enjoy dividends 
+                and market rewards within the ecosystem.
+              </p>
             </section>
             <section className="py-8">
               <div className="flex justify-start">
@@ -198,30 +206,32 @@ export default function Component() {
                 <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
                 <h2 className="text-3xl font-bold mb-4">KKC&apos;S FUTURE PLANS</h2>
               </div>
-              <p className="mb-4">
+              <p className="mb-4 font-semibold">
                 In the future, KaKacoin will continue to enhance and add various features to its platform, with a primary
                 focus on social communication and a supplemental role for the wallet. These additions will further
                 integrate the community, DAO, and GameFi.
               </p>
-              <p className="mb-4">Personal asset security, including asset tracking and data analysis tools.</p>
-              <p className="mb-4">
-                Staking pool (community available but not yet integrated into the social platform). Users can choose
+              <p className="mb-2">· Personal asset security, including asset tracking and data analysis tools.</p>
+              <p className="mb-2">
+                · Staking pool (community available but not yet integrated into the social platform). Users can choose
                 single asset staking or liquidity mining to earn income.
               </p>
-              <p className="mb-4">
-                Integrated trading (for example, if you are interested in investment portfolios shared by others, you can
-                trade with a single click at the best rates.
+              <p className="mb-2">
+                · Aggregated trading. For example, if you are interested in investment portfolios shared by others, you can trade 
+                with a single click at the best prices. 
               </p>
-              <p className="mb-4">
-                Aggregation with various GameFi projects. Directly conduct activities on the platform and share income
-                achievements, such as purchased buildings, products, or profit pictures with a single click.
+              <p className="mb-2">
+                · Integration with various Gamefi projects. Directly conduct activities on the platform and share in-game achievements, 
+                such as purchased buildings, products, or profit pictures with a single click. 
               </p>
-              <p className="mb-4">
-                Trending topics. You can follow different real-time trends, understand industry dynamics, and create your
-                own topics to become moderators and earn income by managing topics content.
+              <p className="mb-2">
+               · Trending topics. You can follow different real-time trends, understand industry dynamics, and create your own topics to 
+               become moderators and earn income by managing topic content. 
               </p>
-              <p className="mb-4">Free cryptocurrency currencies and newly listed coins. View real-time price quotes.</p>
-              <p className="mb-4">User tagging, such as &quot;Whale user&quot;, &quot;crypto expert&quot;, &quot;day trader&quot; and more.</p>
+              <p className="mb-2">· Trending cryptocurrencies and newly listed coins. View real-time prices.</p>
+              <p className="mb-2">· User tagging, such as &quot;Whale user&quot;, &quot;crypto expert&quot;, &quot;day trader&quot; and more.</p>
+
+              <p className="mt-4 text-sm">More new social features. The KaKaocoin community can vote to introduce additional features. In summary, KaKaocoin's decentralized social platform is expected to be revolutionary in the future, meeting the current needs of cryptocurrency investors in terms of practicality, entertainment, playability, and financial aspects.</p>
             </section>
           </main>
         </div>

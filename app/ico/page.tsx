@@ -2,9 +2,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-export default function Component() {
+export default function ICO() {
   return (
-    <div key="1" className="bg-[#FFCC00] min-h-screen">
+    <div key="1" className="min-h-screen">
       <div className="text-center p-8">
         <img
           alt="Kakao Coin Mascot"
