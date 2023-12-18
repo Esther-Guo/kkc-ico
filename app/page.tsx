@@ -15,9 +15,9 @@ export default function Home() {
                 By establishing a truly decentralized social <br/> aggregation platform, we aim to pioneer innovative <br/> social models
                 and enhance the social experience in <br/> the Web3 digital era!
               </p>
-              <div className="flex justify-around md:justify-start space-x-8">
+              <div className="flex justify-start space-x-8">
                 <Button className="bg-[#412122] text-[#FFC102] w-2/5 md:w-1/4">Connect Wallet</Button>
-                <Button variant="outline" className="border-black border-[1px] bg-white/50 w-2/5 md:w-1/4">Home</Button>
+                {/* <Button variant="outline" className="border-black border-[1px] bg-white/50 w-2/5 md:w-1/4">Home</Button> */}
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@ export default function Home() {
           </div>
       </header>
       <div>
-        <Button className="bg-[#FFC102] text-white w-64 md:w-52 flex justify-between p-4">
+        <Button className="bg-[#FFC102] text-white w-72 md:w-52 flex justify-between p-6 md:p-4">
           <Link className="text-white" href="/whitepaper">
             White paper
           </Link>
