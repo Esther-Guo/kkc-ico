@@ -2,8 +2,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Countdown } from "@/components/ui/countdown"
 
 export default function ICO() {
+    // When the time zone offset is absent, date-only forms are interpreted as a UTC 
+    // time and date-time forms are interpreted as local time.
+    const futureDate = new Date('2023-12-31T23:59:59'); // local timezone by default
+    //or
+    // const futureDate = new Date('2023-12-31T23:59:59+08:00'); // local timezone
+
   return (
     <div className="min-h-screen bg-white w-full">
         <main>
@@ -19,27 +26,7 @@ export default function ICO() {
         
                 <div className="bg-[#ffe49c] border-black border-[1px] min-w-[40%] py-6 md:py-10 px-6 md:px-12 rounded-xl shadow-md ">
                     <div className="font-semibold">Pre ICO Ends in:</div>
-                    <div className="flex justify-center space-x-2 mt-4 md:mt-6 text-white text-center items-center">
-                        <div className="bg-[#7a5c47] px-2 py-4 md:p-4 rounded-xl">
-                            <div className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-mono">30</div>
-                            <div className="text-xs md:text-sm">DAYS</div>
-                        </div>
-                        <div className="text-[#7a5c47] text-2xl md:text-4xl">:</div>
-                        <div className="bg-[#7a5c47] px-2 py-4 md:p-4 rounded-xl">
-                            <div className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-mono">00</div>
-                            <div className="text-xs md:text-sm">HOURS</div>
-                        </div>
-                        <div className="text-[#7a5c47] text-2xl md:text-4xl">:</div>
-                        <div className="bg-[#7a5c47] px-2 py-4 md:p-4 rounded-xl">
-                            <div className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-mono">00</div>
-                            <div className="text-xs md:text-sm">MIN</div>
-                        </div>
-                        <div className="text-[#7a5c47] text-2xl md:text-4xl">:</div>
-                        <div className="bg-[#7a5c47] px-2 py-4 md:p-4 rounded-xl">
-                            <div className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 font-mono">00</div>
-                            <div className="text-xs md:text-sm">SEC</div>
-                        </div>
-                    </div>
+                        <Countdown targetDate={futureDate}/>
                     <div className="w-full h-2 bg-[#7a5c47] rounded mt-4">
                         <div
                         className="h-full bg-[#FFC102] rounded"

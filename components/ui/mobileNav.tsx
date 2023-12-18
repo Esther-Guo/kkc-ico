@@ -6,11 +6,10 @@ import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import clsx from "clsx"
 
-
 const MobileNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState("home");
-    
+
     return (
       <div className="md:hidden">
         <Button variant="nav" size="icon" className="text-white" onClick={() => setIsOpen(!isOpen)}>
