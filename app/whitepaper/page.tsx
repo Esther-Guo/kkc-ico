@@ -4,16 +4,16 @@ export default function Whitepaper() {
     return (
       <div className="bg-white text-gray-900">
           <main>
-            <section className="px-20 py-16 bg-[#FFC102] relative w-full">
-              <div className="w-[60%] text-left">
-                <h1 className="text-5xl font-bold mb-8">White paper</h1>
-                <p className="text-lg font-bold mb-20">
+            <section className="px-8 md:px-20 py-8 md:py-16 bg-[#FFC102] relative">
+              <div className="w-[70%] md:w-[60%] text-left">
+                <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-8">White paper</h1>
+                <p className="text-xs md:text-lg font-semibold md:font-bold md:mb-20">
                   By establishing a truly decentralized social aggregation platform, we aim to pioneer innovative social
                   models and enhance the social experience in the Web3 digital era!
                 </p>
-                <p className="text-sm mt-4">A well-known project by KAKAO in the Republic of Korea©</p>
+                <p className="hidden md:block text-sm mt-4">A well-known project by KAKAO in the Republic of Korea©</p>
               </div>
-              <div className="absolute right-10 bottom-10">
+              <div className="hidden md:block absolute right-10 bottom-10">
                 <Image
                 src="/whitepaper.png"
                 alt="Whitepaper background"
@@ -21,14 +21,22 @@ export default function Whitepaper() {
                 height={400}
                 />
               </div>
+              <div className="md:hidden absolute right-0 bottom-5 opacity-70">
+                <Image
+                src="/whitepaper.png"
+                alt="Whitepaper background"
+                width={200}
+                height={400}
+                />
+              </div>
             </section>
 
-            <div className="px-20 py-16">
+            <div className="px-4 md:px-20 py-10 md:py-16">
 
-              <section className=" pb-8">
+              <section className="pb-4 mb:pb-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">ABOUT KAKAO</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">ABOUT KAKAO</h2>
                 </div>
                 <p className="mb-4">
                   Kakao is a South Korean software development, financial, entertainment media, and game development company
@@ -43,10 +51,10 @@ export default function Whitepaper() {
                   renowned company.
                 </p>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">VISION</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">VISION</h2>
                 </div>
                 <p className="mb-4">
                   KaKacoin aspires to build a decentralized social aggregation platform through a decentralized Web3.0
@@ -55,10 +63,10 @@ export default function Whitepaper() {
                   their community contributions, realizing co-construction, co-sharing, and co-governance.
                 </p>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL SPACE</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL SPACE</h2>
                 </div>
                 <p className="mb-4">
                   KaKacoin is a next-generation social aggregation platform created by merging the popular Web3.0 concepts
@@ -72,10 +80,10 @@ export default function Whitepaper() {
                   &quot;social domain&quot;, fostering and enjoying immersive experiences.
                 </p>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL METAVERSE</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KAKACOIN&apos;S SOCIAL METAVERSE</h2>
                 </div>
                 <p className="mb-4">
                 The Social Metaverse, also known as the Decentralized Social Metaverse, is a framework designed by KaKaocoin 
@@ -125,10 +133,10 @@ export default function Whitepaper() {
                   </div>
                 </div>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KKC SOCIALFI MODEL</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KKC SOCIALFI MODEL</h2>
                 </div>
                 <p className="mb-4">
                   SocialFi refers to SocialFinance. Literally, it can be understood as Social + Finance, and possibly even
@@ -137,30 +145,30 @@ export default function Whitepaper() {
                   control.
                 </p>
                 <div className="grid grid-cols-1 gap-4">
-                  <div className="bg-gray-100 p-4 rounded-2xl">
-                    <p className="font-semibold my-2 px-4">
+                  <div className="bg-gray-100 p-2 md:p-4 rounded-2xl">
+                    <p className="text-sm md:text-base font-semibold my-2 md:px-4">
                       KaKaocoin&apos;s Integration of Social Interaction, NFT, Games, and Metaverse
                     </p>
                   </div>
-                  <div className="bg-gray-100 p-4 rounded-2xl">
-                    <p className="font-semibold my-2 px-4">
+                  <div className="bg-gray-100 p-2 md:p-4 rounded-2xl">
+                    <p className="text-sm md:text-base font-semibold my-2 md:px-4">
                       Integration of Social Interaction and DAO in KaKaocoin
                     </p>
                   </div>
-                  <div className="bg-gray-100 p-4 my-2 rounded-2xl">
-                    <p className="font-semibold mt-2 px-4">
+                  <div className="bg-gray-100 p-2 md:p-4 my-2 rounded-2xl">
+                    <p className="text-sm md:text-base font-semibold mt-2 md:px-4">
                       KaKaocoin SocialFi Model:
                     </p>
-                    <p className="text-sm px-4">
+                    <p className="text-xs md:text-sm md:px-4">
                       ·  Behavior Reward NFT   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ·  Node Rewards - PoS + PoW
                     </p>
                   </div>
                 </div>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KKC ECONOMIC MODEL</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KKC ECONOMIC MODEL</h2>
                 </div>
                 
                 <p className="mb-4">
@@ -180,7 +188,7 @@ export default function Whitepaper() {
                   width={800}
                   height={500}
                 />
-                <p className="text-[#FFC102] text-xl font-semibold mt-8 mb-4">
+                <p className="text-[#FFC102] text-base md:text-xl font-semibold mt-8 mb-4">
                 KaKaocoin Node Tokens 
                 </p>
                 <p>
@@ -189,10 +197,10 @@ export default function Whitepaper() {
                   and market rewards within the ecosystem.
                 </p>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KKC DAO GOVERNANCE</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KKC DAO GOVERNANCE</h2>
                 </div>
                 <p className="mb-4">
                 KaKaocoin, as a truly decentralized social metaverse of the future, aims to establish a better digital social world. 
@@ -219,17 +227,17 @@ export default function Whitepaper() {
                 community, DAO, and Gamefi
                 </p>
               </section>
-              <section className="py-8">
+              <section className="py-4 mb:py-8">
                 <div className="flex justify-start">
-                  <div className="w-2 h-8 bg-[#FFC102] mr-8"></div>
-                  <h2 className="text-3xl font-bold mb-4">KKC&apos;S FUTURE PLANS</h2>
+                  <div className="w-1 md:w-2 h-8 bg-[#FFC102] mr-4 md:mr-8"></div>
+                  <h2 className="text-xl md:text-3xl font-bold mb-4">KKC&apos;S FUTURE PLANS</h2>
                 </div>
                 <p className="mb-4 font-semibold">
                   In the future, KaKacoin will continue to enhance and add various features to its platform, with a primary
                   focus on social communication and a supplemental role for the wallet. These additions will further
                   integrate the community, DAO, and GameFi.
                 </p>
-                <p className="mb-2">· Personal asset security, including asset tracking and data analysis tools.</p>
+                <p className="mb-2">· Personal asset portfolio, including asset tracking and data analysis tools.</p>
                 <p className="mb-2">
                   · Staking pool (community available but not yet integrated into the social platform). Users can choose
                   single asset staking or liquidity mining to earn income.
