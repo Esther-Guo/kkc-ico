@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
+import { HomeConnectButton } from "@/components/ui/walletConnect"
 
 export default function Home() {
   return (
@@ -16,7 +17,8 @@ export default function Home() {
                 and enhance the social experience in <br/> the Web3 digital era!
               </p>
               <div className="flex justify-start space-x-8">
-                <Button className="bg-[#412122] text-[#FFC102] w-2/5 md:w-1/4">Connect Wallet</Button>
+                <HomeConnectButton />
+                {/* <Button className="bg-[#412122] text-[#FFC102] w-2/5 md:w-1/4">Connect Wallet</Button> */}
                 {/* <Button variant="outline" className="border-black border-[1px] bg-white/50 w-2/5 md:w-1/4">Home</Button> */}
               </div>
             </div>
