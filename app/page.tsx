@@ -7,7 +7,7 @@ import { HomeConnectButton } from "@/components/ui/walletConnect"
 export default function Home() {
   return (
     <div className="bg-white flex flex-col items-center">
-      <header className="relative overflow-hidden h-[500px] md:h-[700px] w-full">
+      <header className="relative overflow-hidden h-[320px] md:h-[700px] w-full">
           <div className="absolute bg-[#FFC102] h-[450px] md:h-[800px] w-[120%] rounded-[30%] md:rounded-[50%] -translate-x-[9%] -translate-y-[35%] md:-translate-y-[25%]">
             <div className="flex flex-col w-[75%] md:w-1/2 translate-y-48 translate-x-16 md:translate-y-80 md:translate-x-64">
               <h1 className="text-2xl md:text-5xl font-bold uppercase text-left mb-2 md:mb-6">WEB3.0 / GAMEFI</h1>
@@ -32,18 +32,19 @@ export default function Home() {
             />
           </div>
       </header>
+      <div className="mb-4 md:mb-8 w-3/4 md:w-1/2 rounded-2xl overflow-hidden relative">
+        <video src="/Kakaocoin.mp4" controls />
+      </div>
       <div>
-        <Button className="bg-[#FFC102] text-white w-72 md:w-52 flex justify-between p-6 md:p-4">
-          <Link className="text-white" href="/whitepaper">
-            White paper
-          </Link>
+        <Link className="bg-[#FFC102] text-white w-72 md:w-60 flex justify-between items-center px-6 py-2 md:px-4 md:py-2 rounded-xl" href="/whitepaper">
+          <p>White paper</p>
           <Image
-            src="/arrowIcon.png"
-            alt="Arrow icon"
-            width={36}
-            height={36}
+          src="/arrowIcon.png"
+          alt="Arrow icon"
+          width={36}
+          height={36}
           />
-        </Button>
+        </Link>
       </div>
       
       <main className="grid grid-cols-1 min-h-[500px] md:grid-cols-3 gap-10 py-8 px-10 md:px-24">
@@ -130,7 +131,7 @@ export default function Home() {
         </Card>
       </main>
       
-      <h2 className="text-xl md:text-3xl font-bold mt-16">KKC&apos;S FUTURE PLANS</h2>
+      <h2 className="text-xl md:text-3xl font-bold mt-8 md:mt-16">KKC&apos;S FUTURE PLANS</h2>
       <p className="my-10 w-3/4 md:w-1/2 text-center">
         In the future, KakaoCoin will continue to enhance and add various features to its platform, with a primary
         focus on social communication and a supplementary role for the wallet. These additions will further integrate

@@ -7,9 +7,9 @@ import { Countdown } from "@/components/ui/countdown"
 const ICOForm = () => {
     // When the time zone offset is absent, date-only forms are interpreted as a UTC 
     // time and date-time forms are interpreted as local time.
-    const futureDate = new Date('2023-12-31T23:59:59'); // local timezone by default
+    // const futureDate = new Date('2024-01-24T00:00:00'); // local timezone by default
     //or
-    // const futureDate = new Date('2023-12-31T23:59:59+08:00'); // local timezone
+    const futureDate = new Date('2024-01-24T00:00:00+09:00'); // korean timezone
 
     return (
         <div className="bg-[#ffe49c] border-black border-[1px] min-w-[40%] py-6 md:py-10 px-6 md:px-12 rounded-xl shadow-md ">
