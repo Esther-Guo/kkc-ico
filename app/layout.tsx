@@ -72,7 +72,7 @@ export default function RootLayout({
                   width={240}
                   height={40}
                 />
-                <p className="mt-6 text-center md:text-left text-sm md:text-base md:text-base">
+                <p className="mt-6 text-center md:text-left text-sm md:text-base">
                   By establishing a truly decentralized social aggregation platform, we aim to pioneer innovative social
                   models and enhance the social experience in the Web3 digital era!
                 </p>
