@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Countdown } from "@/components/ui/countdown"
 import { ICOForm } from "@/components/ui/ICOForm"
+import { BalanceBtn } from "@/components/ui/showBalance"
+import { KKCTest } from "@/components/ui/testKKC"
 
 export default function ICO() {
     
@@ -25,6 +27,8 @@ export default function ICO() {
         
                 
             </section>
+
+            {/* <BalanceBtn /> */}
         
             <div className="bg-[#fff4cc] border-black border-[1px] mx-4 md:mx-24 my-12 md:my-16 py-6 px-4 md:px-36 rounded-xl shadow-md">
                 <div className="grid grid-cols-2 gap-4 place-content-around md:font-semibold">

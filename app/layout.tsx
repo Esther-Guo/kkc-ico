@@ -123,9 +123,9 @@ export default function RootLayout({
                       </Link>
                     </li>
                     <li>
-                      <Link className="text-white" href="#">
+                      <a target="_blank" href="https://t.me/+4NYupYth-xdjZGI1" rel="noopener noreferrer" className="text-white">
                         Contact us
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
