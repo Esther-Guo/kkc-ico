@@ -28,7 +28,7 @@ const ICOForm = () => {
     // time and date-time forms are interpreted as local time.
     // const futureDate = new Date('2024-01-24T00:00:00'); // local timezone by default
     //or
-    const futureDate = new Date('2024-01-04T00:00:00+09:00'); // korean timezone
+    const futureDate = new Date('2024-01-09T00:00:00+09:00'); // korean timezone
 
     const { address, chainId, isConnected } = useWeb3ModalAccount()
     const { walletProvider } = useWeb3ModalProvider()
@@ -39,6 +39,8 @@ const ICOForm = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [isValid, setIsValid] = useState<boolean>(true);
     const [usdtAmount, setUsdtAmount] = useState<number>(0);
+    const [aboveLimit, setAboveLimit] = useState<boolean>(false);
+
 
     useEffect(() => {
         let num = 0;
@@ -85,6 +87,16 @@ const ICOForm = () => {
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(event.target.value);
         const parsedValue = parseInt(event.target.value);
+
+        if (parsedValue > 10000) {
+            setAboveLimit(true);
+            setInputValue("");
+            // console.log(usdtAmount)
+            return;
+        }
+        else {
+            setAboveLimit(false);
+        }
 
         setUsdtAmount(Number((parsedValue * price).toFixed(2)) || 0);
         if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
@@ -197,9 +209,11 @@ const ICOForm = () => {
                         {/* <Button className="bg-[#7a5c47] text-white">MAX</Button> */}
                     </div>
                     {!isValid && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase KKC with whole-number amounts of USDT.</div>}
+                    {aboveLimit && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase 10,000 KKC max.</div>}
+                    
                     <p className="mt-2">You will spend {usdtAmount} USDT</p>
                     <div className="flex justify-around">
-                        <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid}>BUY</Button>
+                        <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid || aboveLimit}>BUY</Button>
                         <Button variant="outline" className="border-black border-[1px] bg-[#FFC102] w-1/3 mt-8 disabled:opacity-50" disabled={!isEnd} onClick={claimToken}>Claim Token</Button>
                     </div>
                 </div>

@@ -10,6 +10,13 @@ import { Web3ModalProvider } from "../context/Web3Modal";
 import { NavConnectButton } from '@/components/ui/walletConnect'
 import { SocialLinks } from '@/components/ui/socialLinks'
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -44,9 +51,20 @@ export default function RootLayout({
                 <Link href="/" className="text-sm mr-4">
                   HOME
                 </Link>
-                <Link href="/ico" className="text-sm">
-                  ICO
-                </Link>
+                {/* <Link href="/ico" className="text-sm"> */}
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                    <Link href="#" className="text-sm">
+                      ICO
+                    </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Coming Soon!</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                
               </div>
             </div>
             <div className="flex items-center">
@@ -78,8 +96,8 @@ export default function RootLayout({
                   models and enhance the social experience in the Web3 digital era!
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-10 md:gap-4 mt-8 md:mt-0">
-                <div>
+              <div className="grid grid-cols-2 gap-10 md:gap-4 mt-8 md:mt-0">
+                {/* <div>
                   <h3 className="font-bold mb-4">About</h3>
                   <ul className="space-y-2 text-sm md:text-base">
                     <li>
@@ -103,11 +121,11 @@ export default function RootLayout({
                       </Link>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div>
                   <h3 className="font-bold mb-4">Info</h3>
                   <ul className="space-y-2 text-sm md:text-base">
-                    <li>
+                    {/* <li>
                       <Link className="text-white" href="#">
                         About us
                       </Link>
@@ -121,7 +139,7 @@ export default function RootLayout({
                       <Link className="text-white" href="#">
                         Terms & Conditions
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <a target="_blank" href="https://t.me/+4NYupYth-xdjZGI1" rel="noopener noreferrer" className="text-white">
                         Contact us

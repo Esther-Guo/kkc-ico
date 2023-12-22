@@ -3,7 +3,7 @@
 const SocialLinks = () => {
     return (
         <div className="flex flex-col md:flex-row space-y-2 md:space-x-2 md:space-y-0">
-            <DiscordIcon />
+            {/* <DiscordIcon /> */}
             <div className="cursor-pointer" onClick={() => open("https://twitter.com/kakaocoin_kkc")}>
                 <TwitterIcon />
             </div>

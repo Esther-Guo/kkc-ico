@@ -34,7 +34,7 @@ export default function ICO() {
                     <div>Sale type</div>
                     <div className="text-right">public</div>
                     <div>Minimum Buy</div>
-                    <div className="text-right">0.1 KKC</div>
+                    <div className="text-right">20 KKC</div>
                     <div>Maximum Buy</div>
                     <div className="text-right">10,000 KKC</div>
                     <div>The first round quota 30%</div>

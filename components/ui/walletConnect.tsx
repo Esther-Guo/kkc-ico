@@ -3,6 +3,7 @@
 import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
 import { Button } from './button'
 import { Wallet } from 'lucide-react'
+import clsx from 'clsx'
 
 const NavConnectButton = () => {
     const { open } = useWeb3Modal();
@@ -27,9 +28,18 @@ const NavConnectButton = () => {
 
 const HomeConnectButton = () => {
     const { open } = useWeb3Modal();
+    const { isConnected } = useWeb3ModalAccount();
+
     return (
         <>
-        <Button className="bg-[#412122] text-[#FFC102] w-2/5 md:w-1/4" onClick={() => open()}>Connect Wallet</Button>
+        
+        
+        <Button className={clsx("bg-[#412122] text-[#FFC102] w-2/5 md:w-1/4",
+        {
+            "hidden": isConnected
+        }
+        )} onClick={() => open()}>Connect Wallet</Button>
+        
         </>
     )
 }
