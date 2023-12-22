@@ -36,7 +36,8 @@ export default function Home() {
         <video src="/Kakaocoin.mp4" controls />
       </div>
       <div>
-        <Link className="bg-[#FFC102] text-white w-72 md:w-60 flex justify-between items-center px-6 py-2 md:px-4 md:py-2 rounded-xl" href="/whitepaper">
+        <a target="_blank" href="https://rms9ofttwfi9neta.public.blob.vercel-storage.com/whitepaper.pdf" rel="noopener noreferrer" 
+            className="bg-[#FFC102] text-white w-72 md:w-60 flex justify-between items-center px-6 py-2 md:px-4 md:py-2 rounded-xl">
           <p>White paper</p>
           <Image
           src="/arrowIcon.png"
@@ -44,7 +45,16 @@ export default function Home() {
           width={36}
           height={36}
           />
-        </Link>
+        </a>
+        {/* <Link className="bg-[#FFC102] text-white w-72 md:w-60 flex justify-between items-center px-6 py-2 md:px-4 md:py-2 rounded-xl" href="/whitepaper">
+          <p>White paper</p>
+          <Image
+          src="/arrowIcon.png"
+          alt="Arrow icon"
+          width={36}
+          height={36}
+          />
+        </Link> */}
       </div>
       
       <main className="grid grid-cols-1 min-h-[500px] md:grid-cols-3 gap-10 py-8 px-10 md:px-24">
