@@ -51,8 +51,8 @@ export default function RootLayout({
                 <Link href="/" className="text-sm mr-4">
                   HOME
                 </Link>
-                {/* <Link href="/ico" className="text-sm"> */}
-                <TooltipProvider>
+                <Link href="/ico" className="text-sm">ICO</Link>
+                {/* <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
                     <Link href="#" className="text-sm">
@@ -63,7 +63,7 @@ export default function RootLayout({
                       <p>Coming Soon!</p>
                     </TooltipContent>
                   </Tooltip>
-                </TooltipProvider>
+                </TooltipProvider> */}
                 
               </div>
             </div>
