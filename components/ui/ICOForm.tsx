@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Countdown } from "@/components/ui/countdown"
 import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers5/react"
-import { ethers } from "ethers"
+import { Signer, ethers } from "ethers"
 import { useState, useEffect } from 'react';
 
 const IDOAddress = '0x9e0366d1c012f4f492f43da6022955569011009e'
@@ -13,13 +13,14 @@ const IDOAbi = [
     "function soldAmount() view returns (uint)",
     "function isEnds() view returns (bool)",
     "function claimToken()",
-    "function buy(uint usdtAmount)"
+    "function buy(uint256 usdtAmount)"
 ]
 
 const USDTAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
-const ero20Abi = [
-    "function approve(address spender, uint256 amount) external returns (bool)"
+const erc20Abi = [
+    "function approve(address spender, uint256 amount) external returns (bool)",
+    "function allowance(address owner, address spender) constant view returns (uint)"
 ]
 
 
@@ -32,6 +33,8 @@ const ICOForm = () => {
 
     const { address, chainId, isConnected } = useWeb3ModalAccount()
     const { walletProvider } = useWeb3ModalProvider()
+    const [signer, setSigner] = useState<ethers.Signer | undefined>(undefined);
+    
     const [soldAmount, setSoldAmount] = useState('Loading...');
     const [percentage, setPercentage] = useState("0");
     const [isEnd, setIsEnd] = useState(false);
@@ -67,18 +70,17 @@ const ICOForm = () => {
         // console.log(percentage)
 
         if (walletProvider) {
-        getNum();
+            getNum();
+            const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+            setSigner(ethersProvider.getSigner());
         }
     }, [walletProvider]); // This effect depends on walletProvider
 
     async function claimToken(){
         if(!isConnected) throw Error("User is not connected")
     
-        const ethersProvider =  new ethers.providers.Web3Provider(walletProvider as ethers.providers.ExternalProvider)
-        const signer = await ethersProvider.getSigner()
-        // The Contract object
         const contract = new ethers.Contract(IDOAddress, IDOAbi, signer)
-        const idoWithSigner = contract.connect(signer);
+        const idoWithSigner = contract.connect(signer as Signer);
 
         idoWithSigner.claimToken()
         
@@ -122,17 +124,24 @@ const ICOForm = () => {
     //     }
     // }
 
+    async function checkUsdtAllowance() {
+        if (!walletProvider) throw new Error("Wallet provider is not available");
+    
+        const userAddress = await (signer as Signer).getAddress();
+        const usdtContract = new ethers.Contract(USDTAddress, erc20Abi, signer);
+    
+        const allowance = await usdtContract.allowance(userAddress, IDOAddress);
+        return allowance;
+    }
+
     async function approveUsdtSpending() {
         
         if (!walletProvider) throw new Error("Wallet provider is not available");
         
         const usdtAmountToApprove = ethers.utils.parseUnits("1000", 6); // 1000 USDT (adjust decimals as needed)
-        // Initialize ethers provider and signer
-        const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
-        const signer = ethersProvider.getSigner();
     
         // Create a new instance of the USDT contract
-        const usdtContract = new ethers.Contract(USDTAddress, ero20Abi, signer);
+        const usdtContract = new ethers.Contract(USDTAddress, erc20Abi, signer);
     
         // Call the approve function
         try {
@@ -150,14 +159,12 @@ const ICOForm = () => {
 
         if(!isConnected) throw Error("User is not connected")
     
-        const ethersProvider =  new ethers.providers.Web3Provider(walletProvider as ethers.providers.ExternalProvider)
-        const signer = await ethersProvider.getSigner()
-        // The Contract object
         const contract = new ethers.Contract(IDOAddress, IDOAbi, signer)
-        const idoWithSigner = contract.connect(signer);
+        const idoWithSigner = contract.connect(signer as Signer);
 
         try {
-            const tx = await idoWithSigner.buy(usdtAmount);
+            // const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 6));
+            const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 0));
             await tx.wait();
             console.log(`Purchase successful. TxHash: ${tx.hash}`);
         } catch (error) {
@@ -168,15 +175,17 @@ const ICOForm = () => {
 
     async function approveAndBuy() {
         try {
-            // First, approve the USDT spending
-            await approveUsdtSpending();
-            console.log("USDT spending approved");
+
+            const allowance = await checkUsdtAllowance();
+
+            // Check if the allowance is less than the amount they want to buy
+            if (allowance.lt(ethers.utils.parseUnits(usdtAmount.toString(), 6))) {
+                // If not enough allowance, approve first
+                await approveUsdtSpending();
+                console.log("USDT spending approved");
+            }
             
             // Then, proceed to buy tokens
-
-            // console.log(usdtAmount)
-            // console.log(ethers.utils.parseUnits(usdtAmount.toString(), 6))
-
             await buyToken(usdtAmount);
             console.log("Token purchase successful");
         } catch (error) {
@@ -205,7 +214,7 @@ const ICOForm = () => {
                         <span className="text-xs font-normal">(Price: {price}U)</span>
                     </p>
                     <div className="flex items-center space-x-2">
-                        <Input className="bg-[#7a5c47] rounded-md text-white" placeholder="0.00" value={inputValue} onChange={handleInputChange}/>
+                        <Input className="bg-[#7a5c47] rounded-md text-white" placeholder="0" value={inputValue} onChange={handleInputChange}/>
                         {/* <Button className="bg-[#7a5c47] text-white">MAX</Button> */}
                     </div>
                     {!isValid && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase KKC with whole-number amounts of USDT.</div>}
