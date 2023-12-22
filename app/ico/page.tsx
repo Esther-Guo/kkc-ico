@@ -1,11 +1,6 @@
-import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Countdown } from "@/components/ui/countdown"
 import { ICOForm } from "@/components/ui/ICOForm"
 import { BalanceBtn } from "@/components/ui/showBalance"
-import { KKCTest } from "@/components/ui/testKKC"
 
 export default function ICO() {
     

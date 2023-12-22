@@ -15,11 +15,13 @@ const IDOAbi = [
     "function claimToken()",
     "function buy(uint usdtAmount)"
 ]
+
+const USDTAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
+
 const ero20Abi = [
     "function approve(address spender, uint256 amount) external returns (bool)"
 ]
 
-const USDTAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
 
 const ICOForm = () => {
     // When the time zone offset is absent, date-only forms are interpreted as a UTC 
@@ -34,8 +36,9 @@ const ICOForm = () => {
     const [percentage, setPercentage] = useState("0");
     const [isEnd, setIsEnd] = useState(false);
     const [price, setPrice] = useState(0.05);
-    const [inputValue, setInputValue] = useState<number | ''>('');
-
+    const [inputValue, setInputValue] = useState<string>('');
+    const [isValid, setIsValid] = useState<boolean>(true);
+    const [usdtAmount, setUsdtAmount] = useState<number>(0);
 
     useEffect(() => {
         let num = 0;
@@ -77,13 +80,41 @@ const ICOForm = () => {
 
         idoWithSigner.claimToken()
         
-      }
+    }
+      
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setInputValue(event.target.value);
+        const parsedValue = parseInt(event.target.value);
+
+        setUsdtAmount(Number((parsedValue * price).toFixed(2)) || 0);
+        if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
+            console.log("Parsed value:", parsedValue);
+            setIsValid(true);
+        } else {
+            setIsValid(false);
+        }
+    }
+
+    // function handleInputBlur() {
+    //     // Parse the input value to a float when the input loses focus
+    //     const parsedValue = parseInt(inputValue);
+        
+    //     if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
+    //         console.log("Parsed value:", parsedValue);
+    //         setUsdtAmount(parsedValue * price);
+    //         setIsValid(true);
+    //     } else {
+    //         setIsValid(false);
+    //         setInputValue('');
+    //         setUsdtAmount(0);
+    //     }
+    // }
 
     async function approveUsdtSpending() {
         
         if (!walletProvider) throw new Error("Wallet provider is not available");
         
-        const usdtAmountToApprove = ethers.utils.parseUnits("1000", 6); // 100 USDT (adjust decimals as needed)
+        const usdtAmountToApprove = ethers.utils.parseUnits("1000", 6); // 1000 USDT (adjust decimals as needed)
         // Initialize ethers provider and signer
         const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
         const signer = ethersProvider.getSigner();
@@ -102,9 +133,6 @@ const ICOForm = () => {
         }
     }
     
-    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setInputValue(parseFloat(event.target.value));
-    }
 
     async function buyToken(usdtAmount: number){
 
@@ -124,17 +152,19 @@ const ICOForm = () => {
             console.error("Purchase failed", error);
             throw error;
         }        
-      }
+    }
 
-      async function approveAndBuy() {
+    async function approveAndBuy() {
         try {
             // First, approve the USDT spending
             await approveUsdtSpending();
             console.log("USDT spending approved");
-    
-            const usdtAmount = inputValue as number * price;
-            console.log(usdtAmount)
+            
             // Then, proceed to buy tokens
+
+            // console.log(usdtAmount)
+            // console.log(ethers.utils.parseUnits(usdtAmount.toString(), 6))
+
             await buyToken(usdtAmount);
             console.log("Token purchase successful");
         } catch (error) {
@@ -166,8 +196,10 @@ const ICOForm = () => {
                         <Input className="bg-[#7a5c47] rounded-md text-white" placeholder="0.00" value={inputValue} onChange={handleInputChange}/>
                         {/* <Button className="bg-[#7a5c47] text-white">MAX</Button> */}
                     </div>
+                    {!isValid && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase KKC with whole-number amounts of USDT.</div>}
+                    <p className="mt-2">You will spend {usdtAmount} USDT</p>
                     <div className="flex justify-around">
-                        <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8" onClick={approveAndBuy}>BUY</Button>
+                        <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid}>BUY</Button>
                         <Button variant="outline" className="border-black border-[1px] bg-[#FFC102] w-1/3 mt-8 disabled:opacity-50" disabled={!isEnd} onClick={claimToken}>Claim Token</Button>
                     </div>
                 </div>
