@@ -7,7 +7,7 @@ import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers5/re
 import { Signer, ethers } from "ethers"
 import { useState, useEffect } from 'react';
 
-const IDOAddress = '0x9e0366d1c012f4f492f43da6022955569011009e'
+const IDOAddress = '0xFeCbD9aB75Df837D6Fa5D0BC2F674C284eCA5886'
 
 const IDOAbi = [
     "function soldAmount() view returns (uint)",
@@ -88,7 +88,8 @@ const ICOForm = () => {
       
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         setInputValue(event.target.value);
-        const parsedValue = parseInt(event.target.value);
+        const parsedValue = parseFloat(event.target.value);
+        // console.log(parsedValue);
 
         if (parsedValue > 10000) {
             setAboveLimit(true);
@@ -100,29 +101,14 @@ const ICOForm = () => {
             setAboveLimit(false);
         }
 
-        setUsdtAmount(Number((parsedValue * price).toFixed(2)) || 0);
-        if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
-            console.log("Parsed value:", parsedValue);
-            setIsValid(true);
-        } else {
-            setIsValid(false);
-        }
+        setUsdtAmount(Number((parsedValue * price).toFixed(6)) || 0);
+        // if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
+        //     console.log("Parsed value:", parsedValue);
+        //     setIsValid(true);
+        // } else {
+        //     setIsValid(false);
+        // }
     }
-
-    // function handleInputBlur() {
-    //     // Parse the input value to a float when the input loses focus
-    //     const parsedValue = parseInt(inputValue);
-        
-    //     if (!isNaN(parsedValue) && Number.isInteger(parsedValue*price)) {
-    //         console.log("Parsed value:", parsedValue);
-    //         setUsdtAmount(parsedValue * price);
-    //         setIsValid(true);
-    //     } else {
-    //         setIsValid(false);
-    //         setInputValue('');
-    //         setUsdtAmount(0);
-    //     }
-    // }
 
     async function checkUsdtAllowance() {
         if (!walletProvider) throw new Error("Wallet provider is not available");
@@ -163,8 +149,7 @@ const ICOForm = () => {
         const idoWithSigner = contract.connect(signer as Signer);
 
         try {
-            // const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 6));
-            const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 0));
+            const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 6));
             await tx.wait();
             console.log(`Purchase successful. TxHash: ${tx.hash}`);
         } catch (error) {
@@ -195,37 +180,37 @@ const ICOForm = () => {
 
     return (
         <div className="bg-[#ffe49c] border-black border-[1px] min-w-[40%] py-6 md:py-10 px-6 md:px-12 rounded-xl shadow-md ">
-                    <div className="font-semibold">Pre ICO Ends in:</div>
-                        <Countdown targetDate={futureDate}/>
-                    <div className="w-full h-2 bg-[#7a5c47] rounded mt-4">
-                        <div
-                        className="h-full bg-[#FFC102] rounded"
-                        style={{
-                            width: percentage,
-                        }}
-                        />
-                    </div>
-                    <div className="flex justify-between items-center mt-1 mb-4">
-                        <div className="text-xs">{soldAmount}KKC</div>
-                        <div className="text-xs">15,000,000KKC</div>
-                    </div>
-                    <p className="font-semibold text-left">
-                        Amount{" "}
-                        <span className="text-xs font-normal">(Price: {price}U)</span>
-                    </p>
-                    <div className="flex items-center space-x-2">
-                        <Input className="bg-[#7a5c47] rounded-md text-white" placeholder="0" value={inputValue} onChange={handleInputChange}/>
-                        {/* <Button className="bg-[#7a5c47] text-white">MAX</Button> */}
-                    </div>
-                    {!isValid && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase KKC with whole-number amounts of USDT.</div>}
-                    {aboveLimit && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase 10,000 KKC max.</div>}
-                    
-                    <p className="mt-2">You will spend {usdtAmount} USDT</p>
-                    <div className="flex justify-around">
-                        <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid || aboveLimit}>BUY</Button>
-                        <Button variant="outline" className="border-black border-[1px] bg-[#FFC102] w-1/3 mt-8 disabled:opacity-50" disabled={!isEnd} onClick={claimToken}>Claim Token</Button>
-                    </div>
-                </div>
+            <div className="font-semibold">Pre ICO Ends in:</div>
+                <Countdown targetDate={futureDate}/>
+            <div className="w-full h-2 bg-[#7a5c47] rounded mt-4">
+                <div
+                className="h-full bg-[#FFC102] rounded"
+                style={{
+                    width: percentage,
+                }}
+                />
+            </div>
+            <div className="flex justify-between items-center mt-1 mb-4">
+                <div className="text-xs">{soldAmount}KKC</div>
+                <div className="text-xs">15,000,000KKC</div>
+            </div>
+            <p className="font-semibold text-left">
+                Amount{" "}
+                <span className="text-xs font-normal">(Price: {price}U)</span>
+            </p>
+            <div className="flex items-center space-x-2">
+                <Input className="bg-[#7a5c47] rounded-md text-white" placeholder="0" value={inputValue} onChange={handleInputChange}/>
+                {/* <Button className="bg-[#7a5c47] text-white">MAX</Button> */}
+            </div>
+            {/* {!isValid && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase KKC with whole-number amounts of USDT.</div>} */}
+            {aboveLimit && <div className="text-[#ff7300db] text-sm mt-2">You can only purchase 10,000 KKC max.</div>}
+            
+            <p className="mt-2">You will spend {usdtAmount} USDT</p>
+            <div className="flex justify-around">
+                <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid || aboveLimit}>BUY</Button>
+                <Button variant="outline" className="border-black border-[1px] bg-[#FFC102] w-1/3 mt-8 disabled:opacity-50" disabled={!isEnd} onClick={claimToken}>Claim Token</Button>
+            </div>
+        </div>
     )
 }
 
