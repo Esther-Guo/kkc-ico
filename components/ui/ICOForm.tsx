@@ -43,6 +43,7 @@ const ICOForm = () => {
     const [isValid, setIsValid] = useState<boolean>(true);
     const [usdtAmount, setUsdtAmount] = useState<number>(0);
     const [aboveLimit, setAboveLimit] = useState<boolean>(false);
+    const [successBuy, setSuccessBuy] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -53,7 +54,8 @@ const ICOForm = () => {
             const signer = ethersProvider.getSigner();
             const contract = new ethers.Contract(IDOAddress, IDOAbi, signer);
             const value = await contract.soldAmount();
-            setSoldAmount(value.toString());
+            setSoldAmount((value / Math.pow(10,18)).toLocaleString());
+
             num = value;
             const flag = await contract.isEnds();
             setIsEnd(flag);
@@ -64,7 +66,7 @@ const ICOForm = () => {
             setSoldAmount('Error fetching data');
         }
     };
-        setPercentage(num /15000000*100+"%")
+        setPercentage((num / Math.pow(10,18)) /15000000*100+"%")
 
         if (num > 15000000*0.3) setPrice(0.1);
         // console.log(percentage)
@@ -151,7 +153,9 @@ const ICOForm = () => {
         try {
             const tx = await idoWithSigner.buy(ethers.utils.parseUnits(usdtAmount.toString(), 6));
             await tx.wait();
+
             console.log(`Purchase successful. TxHash: ${tx.hash}`);
+            setSuccessBuy(true);
         } catch (error) {
             console.error("Purchase failed", error);
             throw error;
@@ -210,6 +214,7 @@ const ICOForm = () => {
                 <Button variant="outline" className="border-black border-[1px] w-1/3 mt-8 disabled:opacity-50" onClick={approveAndBuy} disabled={isEnd || !isValid || aboveLimit}>BUY</Button>
                 <Button variant="outline" className="border-black border-[1px] bg-[#FFC102] w-1/3 mt-8 disabled:opacity-50" disabled={!isEnd} onClick={claimToken}>Claim Token</Button>
             </div>
+            {successBuy && <p className="text-[#ff7300db] font-semibold mt-2">Congrats! Purchase successful.</p>}
         </div>
     )
 }
