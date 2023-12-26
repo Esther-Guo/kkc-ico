@@ -18,7 +18,10 @@ export default function ICO() {
                 />
                 </div>
 
-                <ICOForm />
+                <div>
+                  <p className="text-sm md-2">KKC Contract: 0x028C4cd9606E3963a17eCdF6765b27a32D31A8aB</p>
+                  <ICOForm />
+                </div>
         
                 
             </section>
